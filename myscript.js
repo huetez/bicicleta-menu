@@ -5,7 +5,7 @@ var app = new Vue({
         axios
             .get(
                 // 'https://sheets.googleapis.com/v4/spreadsheets/1zIVCVA0Tk5CvAiTyeAdDBPygT3aKDiSeM2FbPU0JO2c/values/Specials!A2:C20?key=AIzaSyBhiqVypmyLHYPmqZYtvdSvxEopcLZBdYU'
-                'https://script.google.com/macros/s/AKfycby01lKNm94FHYORH3_c-lHK35r4zOoZiF8_tOD-QhfujBglDiE/exec?action=getItems'
+                'https://script.google.com/macros/s/AKfycbyPfW0nNypeN5ALIOyKnkJoEiCxjBA1ZdG464ks-w9Gii5tPLWseWopLThVqHQFfam28w/exec?action=getItems'
             )
             .then(function (response) {
                 // let specials = response.data.values
