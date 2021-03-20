@@ -1,69 +1,63 @@
-var app = new Vue({
-    el: '#app',
-    mounted() {
-        let vm = this
-        axios
-            .get(
-                // 'https://sheets.googleapis.com/v4/spreadsheets/1zIVCVA0Tk5CvAiTyeAdDBPygT3aKDiSeM2FbPU0JO2c/values/Specials!A2:C20?key=AIzaSyBhiqVypmyLHYPmqZYtvdSvxEopcLZBdYU'
-                'https://script.google.com/macros/s/AKfycbyPfW0nNypeN5ALIOyKnkJoEiCxjBA1ZdG464ks-w9Gii5tPLWseWopLThVqHQFfam28w/exec?action=getItems'
-            )
-            .then(function (response) {
-                // let specials = response.data.values
-                // console.log('----------');
-                
-                // console.table(specials);
+const spinner = document.getElementById("spinner");
+const tbody1 = document.getElementById('tbody_1');
+const tbody2 = document.getElementById('tbody_2');
 
-                // console.log('----------');
-                // for (let index = 0; index < specials.length; index++) {
-                //     const element = specials[index]
-                //     let mitem = {
-                //         name: element[0],
-                //         description: element[1],
-                //         price: element[2]
-                //     }
-                //     if (vm.isEven(index)) {
-                //         vm.menuItems_L = vm.menuItems_L.concat(mitem)
-                //     } else {
-                //         vm.menuItems_R = vm.menuItems_R.concat(mitem)
-                //     }
-                // }
+async function fetchData() {
+    // let specials = response.data.items
+    
+    const rsp = await fetch( "https://script.google.com/macros/s/AKfycbyPfW0nNypeN5ALIOyKnkJoEiCxjBA1ZdG464ks-w9Gii5tPLWseWopLThVqHQFfam28w/exec?action=getItems" ),
+          data = await rsp.json();
+    return data.items
+}
 
-                let specials = response.data.items
-                console.log('----------');
-                
-                console.table(specials);
+async function fetchDataAxios() {
+  const rsp = await axios( "https://script.google.com/macros/s/AKfycbyPfW0nNypeN5ALIOyKnkJoEiCxjBA1ZdG464ks-w9Gii5tPLWseWopLThVqHQFfam28w/exec?action=getItems" );
 
-                console.log('----------');
-                for (let i = 0; i < specials.length; i++) {
-                    // const element = specials[i]
-                    let mitem = {
-                        name: specials[i].Title,
-                        description: specials[i].Description,
-                        price: specials[i].Price
-                    }
-                    if (vm.isEven(i)) {
-                        vm.menuItems_L = vm.menuItems_L.concat(mitem)
-                    } else {
-                        vm.menuItems_R = vm.menuItems_R.concat(mitem)
-                    }
-                }
+  return rsp.data.items;
+}
 
-                console.log(response)
-            })
-    },
-    data: {
-        menuItems_L: [],
-        menuItems_R: [],
-        // menuStyle: {
-        //     background: '#ffe6d1',
-        //     color: '#000'
-        // },
-        
-    },
-    computed: {},
-    methods: {
-        isEven: function (n) {
-            return n % 2 == 0
+async function SetData(){
+  try {
+    let result = await fetchDataAxios();
+    spinner.setAttribute("hidden", "");
+
+    let htmlelement="";
+
+    tbody1.innerHTML="";
+    tbody2.innerHTML="";
+    for (let i = 0; i < result.length; i++) {
+        const element = result[i];
+        htmlelement=`
+        <tr class="nameandprice">
+            <td >
+                <span >${element.Title}</span>
+            </td>
+            <td >
+                <span >${element.Price? element.Price: 'S./0'}</span>
+            </td>
+        </tr>
+        <tr class="description">
+            <td colspan="1">${element.Description?element.Description:'-'}</td>
+        </tr>`;
+
+        if (i%2==0) {
+          tbody1.innerHTML+=htmlelement;   
+        } else {
+          tbody2.innerHTML+=htmlelement;   
         }
     }
+    
+  } catch( err ) {
+    console.error( err );
+  }
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+  //do work
+  // spinner.classList.add('show');
+  // spinner.removeAttribute("hidden");
+
+  SetData();
 });
