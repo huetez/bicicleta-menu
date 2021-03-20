@@ -1,6 +1,6 @@
 :root {
   --maincolor: #252525;
-  --secondcolor: #ffcf40;
+  --secondcolor: #ffffff;
   /* #  FFD195*/
   --scrollbar: #999999;
 }
@@ -37,45 +37,24 @@ html {
   margin: 0;
   padding: 0;
   background-color: var(--secondcolor);
+  font-family: 'Amatic SC', cursive;
 }
 
 a {
   text-decoration: none;
 }
-
+.logo {
+  width: 300px;
+  margin-top: 30px;
+}
 h1 {
-  font-family: "hot_resturant", cursive;
+  font-family: 'Amatic SC', cursive;
   font-size: 50px;
   font-weight: 100;
 
   /* line-height: 25px; */
 }
 
-@font-face {
-  font-family: "hot_resturant";
-  src: local("hot_resturant"),
-    /* url('fonts/Hot Restaurant.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Hot Restaurant.woff') format('woff'), */
-      url("fonts/Hot Restaurant.ttf") format("truetype"),
-    url("fonts/Hot Restaurant.svg#hot_resturant") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-strecht: condensed;
-  unicode-range: "U+0-10FFFF";
-}
-
-@font-face {
-  font-family: "Satisfy";
-  src: local("Satisfy"),
-    /* url('fonts/Satisfy-Regular.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Satisfy-Regular.woff') format('woff'), */
-      url("fonts/Satisfy-Regular.ttf") format("truetype"),
-    url("fonts/Satisfy-Regular.svg#Satisfy") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-strecht: condensed;
-  unicode-range: "U+0-10FFFF";
-}
 
 #spinner:not([hidden]) {
   position: fixed;
@@ -185,13 +164,15 @@ h1 {
 .nameandprice th:first-child {
   text-align: left;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 34px;
+  font-family: 'Amatic SC', cursive;
 }
 
 .nameandprice td:first-child {
   text-align: left;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 34px;
+  font-family: 'Amatic SC', cursive;
 }
 
 .nameandprice td:first-child span {
