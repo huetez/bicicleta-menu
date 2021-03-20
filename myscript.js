@@ -7,13 +7,13 @@ const tbody2 = document.getElementById('tbody_2');
 async function fetchData() {
     // let specials = response.data.items
     
-    const rsp = await fetch( "https://script.google.com/macros/s/AKfycby01lKNm94FHYORH3_c-lHK35r4zOoZiF8_tOD-QhfujBglDiE/exec?action=getItems" ),
+    const rsp = await fetch( "https://script.google.com/macros/d/1Kxzn_l8RYIn5RKhviVwzmd12iYcAie4-Botp6zBvUnA/exec?action=getItems" ),
           data = await rsp.json();
     return data.items
 }
 
 async function fetchDataAxios() {
-  const rsp = await axios( "https://script.google.com/macros/s/AKfycby01lKNm94FHYORH3_c-lHK35r4zOoZiF8_tOD-QhfujBglDiE/exec?action=getItems" );
+  const rsp = await axios( "https://script.google.com/macros/d/1Kxzn_l8RYIn5RKhviVwzmd12iYcAie4-Botp6zBvUnA/exec?action=getItems" );
 
   return rsp.data.items;
 }
