@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheets API - Specials Menu</title>
+  <link href="https://fonts.googleapis.com/css?family=Damion|Quicksand" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  
+  <meta name="author" content="Roger Colquehuanca ">
+  <meta name="description" content="daily specials - google sheets" />
+  <meta name="keywords" content="" />
+  <meta name="robots" content="noodp" />
+  <meta name="theme-color" content="#252525" />
+  <link rel="canonical" href="https://rogergcc.github.io/specials_menu/" />
+  
+
+  <meta name="msapplication-TileColor" content="#252525">
+  <meta name="theme-color" content="#252525">
+
+  <meta itemprop="name" content="Menu - Especialidades del dia">
+  <meta itemprop="description" content="roger's android & web">
+
+  <meta property="og:site_name" content="Menu-Especialidades del dia">
+  <meta property="og:url" content="/">
+  <meta property="og:title" content="Menu - Especialidades del dia">
+  <meta property="og:image" content="favicon.png">
+  <meta property="og:locale" content="en-us">
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://rogergcc.github.io/specials_menu/"/>
+  <meta name="twitter:title" content="Menu - Especialidades del dia"/>
+  <meta name="twitter:description" content="daily specials google sheets"/>
+
+</head>
+<body>
+<a href="https://docs.google.com/spreadsheets/d/1q8tX6qEj5NbWKaGX3hWAzoSbrHqwM9IN-8bqOZmbIIo/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+    <div class="editlink">INSPECT<br />DATA</div>
+</a>
+
+<div id="spinner" class="show"></div>
+
+<div id="app">
+        <section id="specialssection" class="specials-container" v-if="menuItems_L" >
+            <div id="special_component" >
+                <!-- <h1>Daily Specials</h1> -->
+                <h1>Especiales del día</h1>
+                <div class="specials-table-container">
+                    <table id="table_1">
+                      
+                        <tbody id="tbody_1">
+                            <tr class="nameandprice">
+                                <td >
+                                    <span >Food Name</span>
+                                </td>
+                                <td >
+                                    <span >$price</span>
+                                </td>
+                            </tr>
+                            <tr class="description">
+                                <td colspan="2">Description</td>
+                            </tr>
+
+                            
+                        </tbody>
+                    </table>
+                    <table id="table_2">
+                        <tbody id="tbody_2">
+                            <tr class="nameandprice">
+                                <td >
+                                    <span >Food Name</span>
+                                </td>
+                                <td >
+                                    <span >$price</span>
+                                </td>
+                            </tr>
+                            <tr class="description">
+                                <td colspan="2">Description</td>
+                            </tr>
+
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+<!-- partial -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js'>
+
+</script><script  src="./myscript.js"></script>
+
+</body>
+</html>
